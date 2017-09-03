@@ -8,18 +8,18 @@ layout: default
 Ethonate is a free to use button generation tool that which enables individuales and groups, including open-source projects, to post their ethereum wallet information.
 
 ### Example usage:
- [![Donate]({{site.baseurl}}/svg/ethereum.svg)]({{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
+ [![Donate]({{site.url}}{{site.baseurl}}/svg/ethereum.svg)]({{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
 
 
 #### Markdown
  ```markdown
- [![Donate]({{site.baseurl}}/svg/donate.svg)]({{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
+ [![Donate]({{site.url}}{{site.baseurl}}/svg/donate.svg)]({{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
  ```
 
 #### HTML:
  ```html
- <a href="//{{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F">
-   <img src="{{site.baseurl}}/svg/donate.svg" width="100"/>
+ <a href="{{site.url}}{{site.baseurl}}/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F">
+   <img src="{{site.url}}{{site.baseurl}}/svg/donate.svg" width="100"/>
  </a>
  ```
 
