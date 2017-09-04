@@ -51,16 +51,16 @@
 <p>Ethonate is a free to use button generation tool that which enables individuales and groups, including open-source projects, to post their ethereum wallet information.</p>
 
 <h3 id="example-usage">Example usage:</h3>
-<p><a href="/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F"><img src="https://brianmacdonald.github.io/Ethonate/svg/ethereum.svg" alt="Donate" /></a></p>
+<p><a href="https://brianmacdonald.github.io/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F"><img src="https://brianmacdonald.github.io/Ethonate/svg/eth-donate-blue.svg" alt="Donate" /></a></p>
 
 <h4 id="markdown">Markdown</h4>
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code> <span class="p">[</span><span class="nv">![Donate</span><span class="p">](</span><span class="sx">https://brianmacdonald.github.io/Ethonate/svg/donate.svg</span><span class="p">)</span>](/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code> <span class="p">[</span><span class="nv">![Donate</span><span class="p">](</span><span class="sx">https://brianmacdonald.github.io/Ethonate/svg/eth-donate-blue.svg</span><span class="p">)</span>](https://brianmacdonald.github.io/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F)
 </code></pre>
 </div>
 
 <h4 id="html">HTML:</h4>
 <div class="language-html highlighter-rouge"><pre class="highlight"><code> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"https://brianmacdonald.github.io/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://brianmacdonald.github.io/Ethonate/svg/donate.svg"</span> <span class="na">width=</span><span class="s">"100"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"https://brianmacdonald.github.io/Ethonate/svg/eth-donate-blue.svg"</span><span class="nt">/&gt;</span>
  <span class="nt">&lt;/a&gt;</span>
 </code></pre>
 </div>
@@ -69,19 +69,11 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
 
-<div id="box">
-
-
+<div id="url" data-url="
+https://brianmacdonald.github.io/Ethonate">
 </div>
 
 <h4 id="style">Style</h4>
-
-<ul>
-      <label for="style">Donate</label>
-      <input type="radio" value="donate" name="style" />
-   </ul>
-
-<h4 id="address">Address</h4>
 
 <style>
 .address-input {
@@ -89,7 +81,42 @@
     padding: 3px;
     width: 380px;
 }
+ul {
+  list-style: none;
+}
+.input-label {
+  display:inline-block;
+
+}
+.input-field {
+  display:inline-block;
+}
 </style>
+
+<ul>
+      <li>
+      <span class="input-label">
+      <span class="input-field">
+        <input type="radio" value="donate" name="style" />
+      </span>
+      <label for="style">
+        <img src="https://brianmacdonald.github.io/Ethonate/svg/eth-donate-blue.svg" />
+      </label>
+      </span>
+      </li>
+      <li>
+        <span class="input-label">
+        <span class="input-field">
+          <input type="radio" value="support" name="style" />
+        </span>
+        <label for="style">
+          <img src="https://brianmacdonald.github.io/Ethonate/svg/eth-support-blue.svg" />
+        </label>
+        </span>
+      </li>
+   </ul>
+
+<h4 id="address">Address</h4>
 
 <div>
     <input class="address-input" type="text" placeholder="0x520120af9464Ef42FF9D663f9C59FafDF51aa54F" />
@@ -98,14 +125,62 @@
 <h5 id="markdown-1">Markdown</h5>
 
 <div>
-   <pre>
+   <pre id="markdown-output">
 
    </pre>
 </div>
 
+<script>
+
+function updateOutput(url, style, address) {
+  $('#markdown-output').text(createMarkdown(url, style, address));
+  console.log('updating output');
+}
+
+function createMarkdown(url, type, address) {
+  return "[![" + type + "]("+ url + "/svg/eth-" +
+      type +  "-blue.svg)](" + url + "/address#" + address + ")";
+
+}
+
+function validAddress(address) {
+  return address.search('0x') === 0 && address.length === 42;
+}
+
+$( document ).ready(function() {
+
+  var address, style, url = $('#url').attr('data-url');
+
+  console.log('ready');
+
+  $('input[name=style]').change(function () {
+    style = $(this).val();
+    console.log('input changed');
+    if (address && validAddress(address)) {
+      updateOutput(url, style, address);
+    }
+  });
+
+  $('.address-input').keydown(function () {
+    addressUpdate($(this).val())
+  });
+  $('.address-input').change(function () {
+    addressUpdate($(this).val())
+  })
+
+  var addressUpdate  = function (val) {
+    address = val;
+    console.log('input changed');
+    if (style && validAddress(address)) {
+      updateOutput(url, style, address);
+    }
+  };
+
+});
+</script>
+
 <h3 id="contribute">Contribute:</h3>
 <p>TBD</p>
-
 
       </div>
     </main>
@@ -121,7 +196,7 @@
         <ul class="contact-list">
           <li>
             <a href="https://brianmacdonald.github.io/Ethonate/address#0x520120af9464Ef42FF9D663f9C59FafDF51aa54F">
-              Donate
+              <img src="https://brianmacdonald.github.io/Ethonate/svg/eth-support-blue.svg" width="100"/>
             </a>
           </li>
         </ul>
