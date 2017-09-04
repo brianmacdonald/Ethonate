@@ -1,6 +1,6 @@
 ## Ethonate - Ethereum donate button
 
-Ethonate is a free to use button generation tool that which enables individuals and groups, including open-source projects, to post their ethereum wallet information.
+Ethonate is a free to use button generation tool that which allows you to post your ethereum wallet information to Github projects and web sites.
 
 ### How to use:
  [Create your own](https://brianmacdonald.github.io/Ethonate/)
